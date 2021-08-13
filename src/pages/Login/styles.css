@@ -1,0 +1,26 @@
+.my-form {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	/* bring your own prefixes */
+	transform: translate(-50%, -50%);
+	width: 450px;
+	padding: 2rem 5rem !important;
+}
+
+.my-form > :first-child {
+	margin-bottom: 5rem;
+}
+
+.my-form > :last-child {
+	margin-top: 3rem;
+}
+
+.logo {
+	margin: '0 auto';
+	margin-bottom: '2rem';
+	text-align: 'center';
+}
