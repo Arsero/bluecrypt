@@ -5,14 +5,11 @@ export default class CryptHelper {
 	static secretKey: Buffer = undefined;
 
 	static updateSecretKey = (email: string, password: string) => {
-		return (CryptHelper.secretKey = CryptHelper.getKeyFromPassword(
-			password,
-			email
-		));
-	};
-
-	static getKeyFromPassword = (password: string, salt: string) => {
-		return crypto.scryptSync(password, salt, 32);
+		CryptHelper.secretKey = crypto
+			.createHash('sha256')
+			.update(password)
+			.update(email)
+			.digest();
 	};
 
 	static encrypt = (text: string) => {

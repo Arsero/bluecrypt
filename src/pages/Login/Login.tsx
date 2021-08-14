@@ -6,8 +6,8 @@ import { UserContext } from '../../store/UserContext';
 import './styles.css';
 
 const Login: FunctionComponent = () => {
-	const email = useInput('aaa@aaa.com');
-	const password = useInput('aaa');
+	const email = useInput('');
+	const password = useInput('');
 	const [badPassword, setBadPassword] = useState(false);
 	const { login } = useContext(UserContext);
 

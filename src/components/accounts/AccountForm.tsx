@@ -4,7 +4,7 @@ import IAccount from '../../models/account';
 import { AccountContext } from '../../store/AccountContext';
 import './styles.css';
 import relocate from '../../helpers/RelocateHelper';
-import generatePassword from '../../helpers/GeneratePassword';
+import { generatePassword } from '../../helpers/PasswordHelper';
 
 const AccountForm: FunctionComponent = () => {
 	const history = useHistory();

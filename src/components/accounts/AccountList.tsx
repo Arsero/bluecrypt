@@ -60,7 +60,6 @@ const AccountList: FunctionComponent<IProps> = ({ accounts }) => {
 										<td
 											style={{
 												textAlign: 'center',
-												verticalAlign: 'bottom',
 											}}
 										>
 											<span

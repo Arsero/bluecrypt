@@ -4,16 +4,21 @@ import useInput from '../../hooks/useInput';
 import { UserContext } from '../../store/UserContext';
 import IUser from '../../models/user';
 import './styles.css';
+import { checkStrongPassword } from '../../helpers/PasswordHelper';
 
 const Register: FunctionComponent = () => {
-	const email = useInput('aaa@aaa.com');
-	const password = useInput('aaa');
+	const email = useInput('');
+	const password = useInput('');
 	const [badPassword, setBadPassword] = useState(false);
 	const { register } = useContext(UserContext);
 
 	const handleSubmitForm = (event: any) => {
 		event.preventDefault();
-		if (email.value.length > 0 && password.value.length > 0) {
+		if (
+			email.value.length > 0 &&
+			password.value.length > 0 &&
+			checkStrongPassword(password.value)
+		) {
 			const user: IUser = {
 				email: email.value,
 				password: password.value,
@@ -67,7 +72,10 @@ const Register: FunctionComponent = () => {
 								className='delete'
 								onClick={handleCloseBadPassword}
 							></button>
-							The email or the password can't be empty !
+							The email or the password can't be empty ! The
+							password must contain at least 1 lowercase, 1
+							uppercase, 1 numeric, 1 special character and be 10
+							characters.
 						</div>
 					)}
 				</div>
